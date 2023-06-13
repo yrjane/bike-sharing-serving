@@ -18,7 +18,7 @@ class Features(BaseModel):
 
 
 # TODO: 학습 코드에서 저장한 베스트 모델을 가져올 것 (house_rent:latest)
-bento_model = bentoml.sklearn.get("bike_sharing:latest")
+bento_model = bentoml.sklearn.get("house_rent:latest")
 model_runner = bento_model.to_runner()
 svc = bentoml.Service("bike_sharing_regressor", runners=[model_runner])
 # TODO: "bike_sharing_regressor"라는 이름으로 서비스를 띄우기

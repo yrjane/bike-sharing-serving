@@ -75,10 +75,7 @@ def model_drift_detection(
 ) -> None:
     def get_xy(df: pd.DataFrame):
         y = np.log1p(df[LABEL_NAME])
-        x = preprocess_pipeline.fit_transform(
-            X=df.drop([LABEL_NAME], axis=1), y=y
-        )
-
+        x = df.drop([LABEL_NAME], axis=1)
         return x, y
 
     x_train, y_train = get_xy(train_df)
@@ -98,7 +95,8 @@ def model_drift_detection(
     evaluation_suite = model_evaluation()
 
     # TODO: Model Drift 결과를 얻기 위해 suite 실행
-    suite_result = validation_suite.run(train_set, new_set, model["regr"])
+
+    suite_result = evaluation_suite.run(train_set, new_set, model["regr"])
 
     log_failed_check_info(suite_result=suite_result)
 
