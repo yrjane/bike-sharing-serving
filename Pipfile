@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+bentoml = "==1.0.20"
+scikit-learn = "==1.2.2"
+pandas = "==2.0.0"
+numpy = "==1.24.3"
+mlflow = "==2.3.2"d
+category-encoders = "==2.6.1"
+pydantic = "==1.10.8"
+deepchecks = {editable = true, git = "https://github.com/deepchecks/deepchecks"}
+joblib = "==1.2.0"
+
+[dev-packages]
+matplotlib = "*"
+seaborn = "*"
+pre-commit = "*"
+black = "*"
+isort = "*"
+mypy = "*"
+jupyter = "*"
+
+[requires]
+python_version = "3.9"
+python_full_version = "3.9.16"
